@@ -1,3 +1,7 @@
+export const ORDINARY = 'Обычная';
+export const IMPORTANT = 'Важная';
+export const COMPLETED = 'Выполненная';
+
 export interface ITodoItem {
   id: number;
   title: string;
