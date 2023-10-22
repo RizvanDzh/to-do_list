@@ -1,0 +1,14 @@
+.todo-item {
+  padding: 10px;
+  border: 1px solid #0c0101;
+  margin-bottom: 10px;
+
+  &--important {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  &--completed {
+    text-decoration: line-through;
+  }
+}

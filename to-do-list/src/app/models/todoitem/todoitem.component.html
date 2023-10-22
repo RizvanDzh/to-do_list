@@ -1,0 +1,8 @@
+<div class="todo-item" [ngClass]="setStatusClass()">
+  <h3 class="todo-item__title">{{item.title}}</h3>
+  <select [(ngModel)]="selectedValue" class="todo-item__status">
+    <option value="ordinary" selected>Обычная</option>
+    <option value="important">Важная</option>
+    <option value="completed">Выполненная</option>
+  </select>
+</div>

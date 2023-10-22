@@ -1,24 +1,21 @@
-export const ORDINARY = 'Обычная';
-export const IMPORTANT = 'Важная';
-export const COMPLETED = 'Выполненная';
+export const ORDINARY = 'ordinary';
+export const IMPORTANT = 'important';
+export const COMPLETED = 'completed';
 
 export interface ITodoItem {
   id: number;
   title: string;
   status: string;
-  isCompleted: boolean;
 }
 
 export class TodoItem {
   public id: number;
   public title: string;
   public status: string;
-  public isCompleted: boolean;
 
   constructor(item: ITodoItem) {
     this.id = item.id;
     this.title = item.title;
     this.status = item.status;
-    this.isCompleted = item.isCompleted;
   }
 }
