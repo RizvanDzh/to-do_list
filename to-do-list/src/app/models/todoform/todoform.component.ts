@@ -1,0 +1,27 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { TodoItem, ITodoItem } from 'src/app/item';
+
+@Component({
+  selector: 'app-todoform',
+  templateUrl: './todoform.component.html',
+  styleUrls: ['./todoform.component.scss']
+})
+export class TodoformComponent implements OnInit {
+  title!: string;
+  status: string = 'ordinary';
+
+  constructor() { };
+
+  @Input() items!: ITodoItem[];
+
+  @Output() newEvent = new EventEmitter();
+
+  ngOnInit(): void { }
+
+  public addNewItem() {
+    const newItem = new TodoItem(this.items.length, this.title, this.status);
+    this.title = '';
+    this.status = 'ordinary';
+    this.newEvent.emit(newItem);
+  }
+}

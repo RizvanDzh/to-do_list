@@ -1,3 +1,4 @@
 <div class="todos">
   <app-todoitem *ngFor="let todo of todos" [item]='todo'></app-todoitem>
+  <app-todoform [items]="todos" (newEvent)="itemService.addNewItem($event)"></app-todoform>
 </div>

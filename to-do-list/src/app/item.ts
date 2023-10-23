@@ -9,13 +9,5 @@ export interface ITodoItem {
 }
 
 export class TodoItem {
-  public id: number;
-  public title: string;
-  public status: string;
-
-  constructor(item: ITodoItem) {
-    this.id = item.id;
-    this.title = item.title;
-    this.status = item.status;
-  }
+  constructor(public id: number, public title: string, public status: string) { }
 }
