@@ -4,21 +4,21 @@ import { TodoItem, ITodoItem } from 'src/app/item';
 @Component({
   selector: 'app-todoform',
   templateUrl: './todoform.component.html',
-  styleUrls: ['./todoform.component.scss']
+  styleUrls: ['./todoform.component.scss'],
 })
 export class TodoformComponent implements OnInit {
   title!: string;
   status: string = 'ordinary';
 
-  constructor() { };
+  constructor() {}
 
   @Input() items!: ITodoItem[];
 
-  @Output() newEvent = new EventEmitter();
+  @Output() newEvent = new EventEmitter<TodoItem>();
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-  public addNewItem() {
+  public addNewItem(): void {
     const newItem = new TodoItem(this.items.length, this.title, this.status);
     this.title = '';
     this.status = 'ordinary';

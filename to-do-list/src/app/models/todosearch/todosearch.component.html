@@ -1,0 +1,25 @@
+<div class="todo-search">
+  <form class="todo-search__form">
+    <input
+      [(ngModel)]="searchValue"
+      type="text"
+      class="todo-search__input"
+      placeholder="Введите текст поиска"
+      name="search-input"
+    />
+    <button class="todo-search__button" (click)="setSearchValue()">
+      Поиск
+    </button>
+  </form>
+  <select
+    name="status"
+    class="todo-search__select"
+    [(ngModel)]="filterValue"
+    (change)="setFilterValue()"
+  >
+    <option value="default">По умолчанию</option>
+    <option value="ordinary">Обычная</option>
+    <option value="important">Важная</option>
+    <option value="completed">Выполненная</option>
+  </select>
+</div>

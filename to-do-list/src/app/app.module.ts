@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodolistModule } from './models/todolist/todolist.module';
+import { TodosearchComponent } from './models/todosearch/todosearch.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -10,4 +11,4 @@ import { TodolistModule } from './models/todolist/todolist.module';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

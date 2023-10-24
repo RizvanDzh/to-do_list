@@ -4,12 +4,18 @@ import { TodolistComponent } from './todolist.component';
 import { TodoitemComponent } from '../todoitem/todoitem.component';
 import { ToDoListService } from 'src/app/services/to-do-list.service';
 import { TodoformComponent } from '../todoform/todoform.component';
+import { TodosearchComponent } from '../todosearch/todosearch.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [TodolistComponent, TodoitemComponent, TodoformComponent],
+  declarations: [
+    TodolistComponent,
+    TodoitemComponent,
+    TodoformComponent,
+    TodosearchComponent,
+  ],
   imports: [CommonModule, FormsModule],
   providers: [ToDoListService],
   exports: [TodolistComponent, TodoitemComponent],
 })
-export class TodolistModule { }
+export class TodolistModule {}
