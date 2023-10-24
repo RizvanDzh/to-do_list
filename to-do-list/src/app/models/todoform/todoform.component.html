@@ -1,0 +1,26 @@
+<div class="todo-form">
+  <h1 class="todo-form__title">Добавление задачи</h1>
+  <form class="todo-form__form">
+    <fieldset class="todo-form__fieldset">
+      <legend class="todo-form__legend">Название задачи</legend>
+      <input
+        [(ngModel)]="title"
+        class="todo-from__input"
+        type="text"
+        name="title"
+        placeholder="Введите название задачи"
+      />
+    </fieldset>
+    <fieldset class="todo-form__fieldset">
+      <legend class="todo-form__legend">Статус задачи</legend>
+      <select [(ngModel)]="status" class="todo-form__select" name="status">
+        <option value="ordinary" selected>Обычная</option>
+        <option value="important">Важная</option>
+        <option value="completed">Выполненная</option>
+      </select>
+    </fieldset>
+    <button class="todo-form__button" (click)="addNewItem()">
+      Добавить задачу
+    </button>
+  </form>
+</div>

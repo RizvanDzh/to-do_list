@@ -1,0 +1,17 @@
+<div class="todos">
+  <app-todosearch
+    [items]="todos"
+    (filterEvent)="filterItemEvent($event)"
+    (searchEvent)="searchItemEvent($event)"
+  ></app-todosearch>
+  <app-todoitem
+    *ngFor="let todo of itemService.searchItems()"
+    [item]="todo"
+    (changeStatusEvent)="changeStatusEvent(todo, $event)"
+    (deleteItemEvent)="deleteItemEvent($event)"
+  ></app-todoitem>
+  <app-todoform
+    [items]="todos"
+    (newEvent)="processEvent($event)"
+  ></app-todoform>
+</div>
