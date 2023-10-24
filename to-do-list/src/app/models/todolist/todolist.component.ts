@@ -31,4 +31,8 @@ export class TodolistComponent implements OnInit {
   public searchItemEvent(event: string): void {
     this.itemService.setSearchValue(event);
   }
+
+  public deleteItemEvent(event: ITodoItem): void {
+    this.itemService.deleteItem(event);
+  }
 }

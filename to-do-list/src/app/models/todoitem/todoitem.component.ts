@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ITodoItem } from 'src/app/item';
+import { ITodoItem, TodoItem } from 'src/app/item';
 
 @Component({
   selector: 'app-todoitem',
@@ -15,6 +15,8 @@ export class TodoitemComponent implements OnInit {
 
   @Output() changeStatusEvent = new EventEmitter<string>();
 
+  @Output() deleteItemEvent = new EventEmitter<TodoItem>();
+
   ngOnInit(): void {
     this.selectedValue = this.item.status;
   }
@@ -29,5 +31,9 @@ export class TodoitemComponent implements OnInit {
     } else {
       return 'todo-item--ordinary';
     }
+  }
+
+  public deleteItem(): void {
+    this.deleteItemEvent.emit(this.item);
   }
 }

@@ -8,6 +8,7 @@
     *ngFor="let todo of itemService.searchItems()"
     [item]="todo"
     (changeStatusEvent)="changeStatusEvent(todo, $event)"
+    (deleteItemEvent)="deleteItemEvent($event)"
   ></app-todoitem>
   <app-todoform
     [items]="todos"
