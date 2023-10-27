@@ -30,6 +30,34 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    this.router.navigate(['auth']);
+  }
+
+  parseJwt(token: string) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(
+      window
+        .atob(base64)
+        .split('')
+        .map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join('')
+    );
+    return JSON.parse(jsonPayload);
+  }
+
+  public get token(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  public get user(): any {
+    if (this.token) {
+      const userJwt = this.parseJwt;
+      return userJwt;
+    } else {
+      return null;
+    }
   }
 }
