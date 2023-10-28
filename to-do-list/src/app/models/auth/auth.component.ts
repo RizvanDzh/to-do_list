@@ -14,7 +14,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {
+  public login(): void {
     console.log(this.email, this.password);
     this.authService.login(this.email, this.password).subscribe(console.log);
   }

@@ -22,11 +22,20 @@ export class AuthService {
         map((res) => {
           if (res.token) {
             localStorage.setItem('token', res.token);
+            this.router.navigate(['todolist']);
           }
           return null;
         })
       );
   }
+
+  /*login(email: string, password: string) {
+    return this.http.post(`${this.baseUrlAuth}/registration`, {
+      email,
+      password,
+      fio: 'Rizvan',
+    });
+  }*/
 
   logout() {
     localStorage.removeItem('token');
@@ -53,7 +62,8 @@ export class AuthService {
   }
 
   public get user(): any {
-    if (this.token) {
+    const token = this.token;
+    if (token) {
       const userJwt = this.parseJwt;
       return userJwt;
     } else {
