@@ -1,7 +1,3 @@
-export const ORDINARY = 'ordinary';
-export const IMPORTANT = 'important';
-export const COMPLETED = 'completed';
-
 export interface ITodoItem {
   id: number;
   title: string;

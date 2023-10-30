@@ -1,18 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ITodoItem } from 'src/app/item';
 
 @Component({
   selector: 'app-todosearch',
   templateUrl: './todosearch.component.html',
   styleUrls: ['./todosearch.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodosearchComponent implements OnInit {
   public searchValue: string = '';
   public filterValue: string = 'default';
-
-  constructor() {}
-
-  @Input() items!: ITodoItem[];
 
   @Output() searchEvent = new EventEmitter<string>();
 
