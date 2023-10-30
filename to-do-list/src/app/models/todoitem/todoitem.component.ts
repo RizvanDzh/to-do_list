@@ -1,13 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ITodoItem, TodoItem } from 'src/app/item';
 
 @Component({
   selector: 'app-todoitem',
   templateUrl: './todoitem.component.html',
   styleUrls: ['./todoitem.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoitemComponent implements OnInit {
-  public selectedValue!: string;
+  public selectedValueClass!: string;
+  public selectControl: FormControl = new FormControl();
 
   constructor() {}
 
@@ -18,15 +28,22 @@ export class TodoitemComponent implements OnInit {
   @Output() deleteItemEvent = new EventEmitter<TodoItem>();
 
   ngOnInit(): void {
-    this.selectedValue = this.item.status;
+    this.selectedValueClass = this.setStatusClass(this.item.status);
+    this.selectControl.setValue(this.item.status);
+    this.initSelectControl();
   }
 
-  public setStatusClass() {
-    this.changeStatusEvent.emit(this.selectedValue);
+  public initSelectControl() {
+    this.selectControl.valueChanges.subscribe((value: string) => {
+      this.changeStatusEvent.emit(value);
+      this.selectedValueClass = this.setStatusClass(value);
+    });
+  }
 
-    if (this.selectedValue == 'important') {
+  public setStatusClass(value: string) {
+    if (value == 'important') {
       return 'todo-item--important';
-    } else if (this.selectedValue == 'completed') {
+    } else if (value == 'completed') {
       return 'todo-item--completed';
     } else {
       return 'todo-item--ordinary';

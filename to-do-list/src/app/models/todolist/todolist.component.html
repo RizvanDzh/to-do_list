@@ -1,15 +1,18 @@
 <div class="todos">
   <app-todosearch
-    [items]="todos"
     (filterEvent)="filterItemEvent($event)"
     (searchEvent)="searchItemEvent($event)"
   ></app-todosearch>
-  <app-todoitem
-    *ngFor="let todo of itemService.searchItems()"
-    [item]="todo"
-    (changeStatusEvent)="changeStatusEvent(todo, $event)"
-    (deleteItemEvent)="deleteItemEvent($event)"
-  ></app-todoitem>
+  <ng-container *ngIf="filteredTodos?.length">
+    <app-todoitem
+      *ngFor="let todo of filteredTodos"
+      [item]="todo"
+      (changeStatusEvent)="changeStatusEvent(todo, $event)"
+      (deleteItemEvent)="deleteItemEvent($event)"
+    >
+    </app-todoitem>
+  </ng-container>
+  <div *ngIf="!filteredTodos?.length">Нет данных</div>
   <app-todoform
     [items]="todos"
     (newEvent)="processEvent($event)"

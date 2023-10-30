@@ -5,7 +5,7 @@ import { TodoitemComponent } from '../todoitem/todoitem.component';
 import { ToDoListService } from 'src/app/services/to-do-list.service';
 import { TodoformComponent } from '../todoform/todoform.component';
 import { TodosearchComponent } from '../todosearch/todosearch.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     TodoformComponent,
     TodosearchComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   providers: [ToDoListService],
   exports: [TodolistComponent, TodoitemComponent],
 })

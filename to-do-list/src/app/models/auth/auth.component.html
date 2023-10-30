@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="form">
+    <div class="form__element">
+      <label for="email" class="form__label">Логин</label>
+      <input
+        type="text"
+        id="email"
+        placeholder="mail@gmail.com"
+        class="form__input"
+        [(ngModel)]="email"
+        name="email"
+      />
+    </div>
+    <div class="form__element">
+      <label for="password" class="form__label">Пароль</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="password"
+        class="form__input"
+        [(ngModel)]="password"
+        name="password"
+      />
+    </div>
+    <div class="form__button-container">
+      <button class="form__button" (click)="login()">Log In</button>
+    </div>
+  </form>
+</div>

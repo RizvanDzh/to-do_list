@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "title": "Сходить в магазин",
+    "status": "ordinary"
+  },
+  {
+    "id": 1,
+    "title": "Почистить зубы",
+    "status": "important"
+  },
+  {
+    "id": 2,
+    "title": "Проснуться в 7:00",
+    "status": "completed"
+  },
+  {
+    "id": 3,
+    "title": "Приготовить ужин",
+    "status": "important"
+  },
+  {
+    "id": 4,
+    "title": "Посмотреть фильм",
+    "status": "ordinary"
+  }
+]
